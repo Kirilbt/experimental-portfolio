@@ -4,11 +4,6 @@ export default [
     type: 'glbModel',
     path: '/models/face.glb'
   },
-  {
-    name: 'fontTexture',
-    type: 'fontTexture',
-    path: '/textures/font.png'
-  },
   // {
   //   name: 'video',
   //   type: 'videoTexture',
