@@ -5,8 +5,13 @@ export default [
     path: '/models/face.glb'
   },
   {
-    name: 'video',
-    type: 'videoTexture',
-    path: '/textures/video.mp4'
+    name: 'fontTexture',
+    type: 'fontTexture',
+    path: '/textures/font.png'
   },
+  // {
+  //   name: 'video',
+  //   type: 'videoTexture',
+  //   path: '/textures/video.mp4'
+  // }
 ]

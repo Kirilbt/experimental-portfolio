@@ -22,8 +22,9 @@ export default class Experience {
     this.sizes = new Sizes()
     this.time = new Time()
     this.camera = new Camera()
-    this.renderer = new Renderer()
+
     this.resources = new Resources(assets)
+    this.renderer = new Renderer()
     this.world = new World()
 
     this.sizes.on('resize', () => {
@@ -37,6 +38,7 @@ export default class Experience {
 
   resize() {
     this.camera.resize()
+    this.world.resize()
     this.renderer.resize()
   }
   update() {

@@ -12,7 +12,7 @@ export default class Camera {
 
     this.createPerspectiveCamera()
     this.setOrbitControls()
-    this.setHelpers()
+    // this.setHelpers()
   }
 
   createPerspectiveCamera() {

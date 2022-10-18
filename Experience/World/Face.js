@@ -22,6 +22,7 @@ export default class Face {
         child.castShadow = true
       }
     })
+    this.actualFace.scale.set(4, 4, 4)
   }
 
   resize() {}
