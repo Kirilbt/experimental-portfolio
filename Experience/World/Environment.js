@@ -8,23 +8,24 @@ export default class Environment {
     this.scene = this.experience.scene
     this.resources = this.experience.resources
 
-    this.setMainlight()
+    this.setLights()
   }
 
-  setMainlight() {
-    this.mainLight = new THREE.DirectionalLight('#ffffff', 3)
-    this.mainLight.castShadow = true
-    this.mainLight.shadow.camera.far = 20
-    this.mainLight.shadow.mapSize.set(1024, 1024)
-    this.mainLight.shadow.normalBias = 0.05
-    this.mainLight.position.set(1.5, 7, 3)
+  setLights() {
+    const backLight = new THREE.PointLight(0xffffff, 3, 20)
+    backLight.position.set(-5, 5, -5)
+    this.scene.add(backLight)
 
-    this.scene.add(this.mainLight)
+    const fillLight = new THREE.PointLight(0xffffff, 0.7, 20)
+    fillLight.position.set(-5, 0, 5)
+    this.scene.add(fillLight)
+
+    const keyLight = new THREE.PointLight(0xffffff, 2, 20)
+    keyLight.position.set(5, 0, 0)
+    this.scene.add(keyLight)
   }
 
-  resize() {
-  }
+  resize() {}
 
-  update() {
-  }
+  update() {}
 }

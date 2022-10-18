@@ -7,6 +7,7 @@ export default class Face {
     this.experience = new Experience()
     this.scene = this.experience.scene
     this.resources = this.experience.resources
+    this.time = this.experience.time
     this.face = this.resources.items.face
     this.actualFace = this.face.scene
 
@@ -15,11 +16,18 @@ export default class Face {
 
   setModel() {
     this.scene.add(this.actualFace)
+
+    this.actualFace.traverse((child) => {
+      if(child instanceof THREE.Mesh) {
+        child.castShadow = true
+      }
+    })
   }
 
-  resize() {
-  }
+  resize() {}
 
   update() {
+    this.actualFace.rotation.x += this.time.delta * 0.001;
+		this.actualFace.rotation.y += this.time.delta * 0.001;
   }
 }

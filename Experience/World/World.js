@@ -23,5 +23,8 @@ export default class World {
   }
 
   update() {
+    if(this.face) {
+      this.face.update()
+    }
   }
 }

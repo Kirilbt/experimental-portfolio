@@ -12,28 +12,37 @@ export default class Camera {
 
     this.createPerspectiveCamera()
     this.setOrbitControls()
+    this.setHelpers()
   }
 
   createPerspectiveCamera() {
-    this.perspectiveCamera = new THREE.PerspectiveCamera(
-      35,
+    this.mainCamera = new THREE.PerspectiveCamera(
+      20,
       this.sizes.aspect,
       0.1,
-      1000
+      20
     )
-    this.perspectiveCamera.position.z = 10
+    this.mainCamera.position.z = 10
 
-    this.scene.add(this.perspectiveCamera)
+    this.scene.add(this.mainCamera)
   }
 
   setOrbitControls() {
-    this.controls = new OrbitControls(this.perspectiveCamera, this.canvas)
+    this.controls = new OrbitControls(this.mainCamera, this.canvas)
     this.controls.enableDamping = true
   }
 
+  setHelpers() {
+    const gridHelper = new THREE.GridHelper(10, 10)
+    this.scene.add(gridHelper)
+
+    const axesHelper = new THREE.AxesHelper(10)
+    this.scene.add(axesHelper)
+  }
+
   resize() {
-    this.perspectiveCamera.aspect = this.sizes.aspect
-    this.perspectiveCamera.updateProjectionMatrix()
+    this.mainCamera.aspect = this.sizes.aspect
+    this.mainCamera.updateProjectionMatrix()
   }
 
   update() {
