@@ -2,6 +2,7 @@ import * as THREE from 'three'
 
 import Experience from '../Experience.js'
 import Face from './Face.js'
+import Environment from './Environment.js'
 
 export default class World {
   constructor() {
@@ -10,8 +11,12 @@ export default class World {
     this.scene = this.experience.scene
     this.canvas = this.experience.canvas
     this.camera = this.experience.camera
+    this.resources = this.experience.resources
 
-    this.face = new Face()
+    this.resources.on('ready', () => {
+      this.face = new Face()
+      this.environment = new Environment()
+    })
   }
 
   resize() {

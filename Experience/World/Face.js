@@ -6,11 +6,15 @@ export default class Face {
   constructor() {
     this.experience = new Experience()
     this.scene = this.experience.scene
+    this.resources = this.experience.resources
+    this.face = this.resources.items.face
+    this.actualFace = this.face.scene
 
-    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-    const cube = new THREE.Mesh( geometry, material );
-    this.scene.add( cube );
+    this.setModel()
+  }
+
+  setModel() {
+    this.scene.add(this.actualFace)
   }
 
   resize() {
