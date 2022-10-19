@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import Experience from '../Experience.js'
 import Face from './Face.js'
 import Environment from './Environment.js'
+import Controls from './Controls.js'
 
 export default class World {
   constructor() {
@@ -16,6 +17,7 @@ export default class World {
     this.resources.on('ready', () => {
       this.face = new Face()
       this.environment = new Environment()
+      this.controls = new Controls()
     })
   }
 
@@ -25,6 +27,9 @@ export default class World {
   update() {
     if(this.face) {
       this.face.update()
+    }
+    if(this.controls) {
+      this.controls.update()
     }
   }
 }
