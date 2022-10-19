@@ -4,6 +4,8 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 import { DotScreenPass } from 'three/examples/jsm/postprocessing/DotScreenPass.js'
+import { GammaCorrectionShader} from 'three/examples/jsm/shaders/GammaCorrectionShader.js'
+import { SMAAPass } from 'three/examples/jsm/postprocessing/SMAAPass.js'
 
 import displacementVertex from '/shaders/displacement/vertex.glsl'
 import displacementFragment from '/shaders/displacement/fragment.glsl'
@@ -25,6 +27,8 @@ export default class Renderer {
     this.setRenderPass()
     this.setDotScreenPass()
     this.setDisplacementPass()
+    this.setGammaCorrectionPass()
+    this.setAntialiasPass()
   }
 
   setRenderer() {
@@ -68,7 +72,7 @@ export default class Renderer {
   setDotScreenPass() {
     this.dotScreenPass = new DotScreenPass()
     this.dotScreenPass.enabled = true
-    this.dotScreenPass.uniforms[ 'scale' ].value = 0.2;
+    this.dotScreenPass.uniforms[ 'scale' ].value = 0.3;
     this.effectComposer.addPass(this.dotScreenPass)
   }
 
@@ -86,6 +90,19 @@ export default class Renderer {
     this.displacementPass.enabled = false
     this.displacementPass.material.uniforms.uTime.value = 0
     this.effectComposer.addPass(this.displacementPass)
+  }
+
+  setGammaCorrectionPass() {
+    this.gammaCorrectionPass = new ShaderPass(GammaCorrectionShader)
+    this.effectComposer.addPass(this.gammaCorrectionPass)
+  }
+
+  setAntialiasPass() {
+    if(this.renderer.getPixelRatio() === 1 && !this.renderer.capabilities.isWebGL2) {
+      this.smaaPass = new SMAAPass()
+      this.effectComposer.addPass(this.smaaPass)
+      console.log('using smaa');
+    }
   }
 
   resize() {
