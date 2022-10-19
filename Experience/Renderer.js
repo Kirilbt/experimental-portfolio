@@ -72,7 +72,7 @@ export default class Renderer {
   setDotScreenPass() {
     this.dotScreenPass = new DotScreenPass()
     this.dotScreenPass.enabled = true
-    this.dotScreenPass.uniforms[ 'scale' ].value = 0.3;
+    this.dotScreenPass.uniforms[ 'scale' ].value = 0.5;
     this.effectComposer.addPass(this.dotScreenPass)
   }
 
