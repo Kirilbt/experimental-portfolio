@@ -9,12 +9,19 @@ export default class Controls {
     this.camera = this.experience.camera
 
     this.setOrbitControls()
+    // this.onWheel()
   }
 
   setOrbitControls() {
     this.controls = new OrbitControls(this.camera.mainCamera, this.canvas)
     this.controls.enableDamping = true
   }
+
+  // onWheel() {
+  //   window.addEventListener('wheel', (e) => {
+  //     console.log(e);
+  //   })
+  // }
 
   resize() {}
 
