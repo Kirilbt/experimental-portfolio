@@ -98,6 +98,7 @@ a {
   border-left: 1px solid #ffffff50;
   max-height: 100%;
   overflow-y: scroll;
+  backdrop-filter: blur(10px);
 }
 
 .projects-list li:not(:last-child) {
