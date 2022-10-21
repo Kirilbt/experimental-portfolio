@@ -2,6 +2,7 @@ import * as THREE from 'three'
 
 import Experience from '../Experience.js'
 import Face from './Face.js'
+import Text from './Text.js'
 import Cube from './Cube.js'
 import Environment from './Environment.js'
 import Controls from './Controls.js'
@@ -24,6 +25,8 @@ export default class World {
 
       if(this.randomInt === 1) {
         this.face = new Face()
+      } else if (this.randomInt === 2) {
+        this.text = new Text()
       } else {
         this.cube = new Cube()
       }
@@ -35,6 +38,9 @@ export default class World {
   update() {
     if(this.face) {
       this.face.update()
+    }
+    if(this.text) {
+      this.text.update()
     }
     if(this.cube) {
       this.cube.update()

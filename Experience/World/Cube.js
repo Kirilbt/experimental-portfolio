@@ -14,7 +14,7 @@ export default class Cube {
 
   setModel() {
     this.geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    this.material = new THREE.MeshStandardMaterial( { color: 0xffff55 } );
+    this.material = new THREE.MeshStandardMaterial( { color: 0xffffff } );
     this.cube = new THREE.Mesh( this.geometry, this.material );
     this.scene.add( this.cube );
 
