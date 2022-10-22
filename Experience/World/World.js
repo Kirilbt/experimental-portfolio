@@ -15,9 +15,7 @@ export default class World {
     this.canvas = this.experience.canvas
     this.camera = this.experience.camera
     this.resources = this.experience.resources
-    this.randomInt = Math.floor(Math.random() * (5 - 1) + 1);
-
-    console.log(this.randomInt);
+    this.randomInt = Math.floor(Math.random() * (3 - 1) + 1);
 
     this.resources.on('ready', () => {
       this.environment = new Environment()

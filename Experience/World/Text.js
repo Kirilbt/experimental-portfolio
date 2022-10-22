@@ -24,7 +24,7 @@ export default class Text {
         child.material = new THREE.MeshStandardMaterial( { color: 0xffffff } )
       }
     })
-    this.actualText.scale.set(1, 1, 1)
+    this.actualText.scale.set(0.5, 0.5, 0.5)
   }
 
   resize() {}
