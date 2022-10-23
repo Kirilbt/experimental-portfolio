@@ -1,0 +1,227 @@
+@font-face {
+  font-family: "founders-grotesk";
+  src: url("../../fonts/founders-grotesk-bold.woff2") format("woff2");
+  font-weight: 500;
+  font-display: auto;
+}
+@font-face {
+  font-family: "founders-grotesk";
+  src: url("../../fonts/founders-grotesk-medium.woff2") format("woff2");
+  font-weight: 300;
+  font-display: auto;
+}
+@font-face {
+  font-family: "founders-grotesk";
+  src: url("../../fonts/founders-grotesk-light.woff2") format("woff2");
+  font-weight: 100;
+  font-display: auto;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 62.5%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+body {
+  background: #ffffff;
+  color: #212121;
+  line-height: 1;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: none;
+  padding: 0;
+}
+
+html {
+  font-family: "founders-grotesk";
+  font-weight: 100;
+  font-size: 0.6944444444vw;
+  height: var(--100vh);
+  overflow: hidden;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+input {
+  appearance: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+  outline: none;
+  padding: 0;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+.experience {
+  z-index: -1;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.experience-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  font-family: "founders-grotesk";
+  font-weight: 500;
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+a {
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+
+.content {
+  display: flex;
+  max-height: 100vh;
+}
+
+/* Left */
+.left {
+  color: #ffffff;
+  width: 60%;
+  height: 100vh;
+  padding: 3.2rem;
+}
+
+.left-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  margin-bottom: 3.2rem;
+}
+
+.left-wrapper li {
+  margin-bottom: 0.8rem;
+}
+
+a.link {
+  display: inline-block;
+  position: relative;
+}
+
+a.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  transform: scaleX(1);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+a.link:hover::after {
+  transform: scaleX(0);
+  transform-origin: bottom left;
+}
+
+/* Right */
+.right {
+  flex-grow: 1;
+  border-left: 1px solid rgba(255, 255, 255, 0.3137254902);
+  max-height: 100%;
+  overflow-y: scroll;
+  backdrop-filter: blur(10px);
+}
+
+.projects-list li:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3137254902);
+}
+
+.category-title {
+  font-family: "founders-grotesk", sans-serif;
+  font-weight: 100;
+  color: #ffffff;
+  opacity: 50%;
+  width: 100%;
+  padding: 2rem;
+}
+
+a.project {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+  transition: all 0.3s;
+}
+
+a.project:hover {
+  background-color: #ffffff;
+  color: #212121;
+}
+
+.project-title {
+  font-family: "founders-grotesk" sans-serif;
+  font-weight: 300;
+}
+
+.project-tools {
+  opacity: 50%;
+}
+
+/*# sourceMappingURL=index.css.map */

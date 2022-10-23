@@ -1,33 +1,5 @@
-@font-face {
-  font-family: founders-grotesk-bold;
-  src: url('/fonts/founders-grotesk-bold.woff2') format("woff2");
-  font-display: auto;
-}
-
-@font-face {
-  font-family: founders-grotesk-medium;
-  src: url('/fonts/founders-grotesk-medium.woff2') format("woff2");
-  font-display: auto;
-}
-
-@font-face {
-  font-family: founders-grotesk-light;
-  src: url('/fonts/founders-grotesk-light.woff2') format("woff2");
-  font-display: auto;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: founders-grotesk-light, sans-serif;
-  font-size: 1.2rem;
-  color: #fff;
-  background-color: #000;
-}
+@use '../abstracts';
+@use '../base';
 
 .experience {
   z-index: -1;
@@ -42,24 +14,22 @@ body {
 }
 
 h1 {
-  font-family: founders-grotesk-bold, sans-serif;
+  font-family: abstracts.$founders-grotesk;
+  font-weight: 500;
+  font-size: abstracts.$font-size-title;
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: abstracts.$font-size-default;
 }
 
 h3 {
-  font-size: 1.2rem;
-}
-
-ul {
-  list-style-type: none;
+  font-size: abstracts.$font-size-default;
 }
 
 a {
-  color: #fff;
-  text-decoration: none;
+  color: abstracts.$color-white;
+  font-size: abstracts.$font-size-default;
 }
 
 .content {
@@ -70,13 +40,13 @@ a {
 /* Left */
 
 .left {
-  color: #fff;
+  color: abstracts.$color-white;
   width: 60%;
   height: 100vh;
-  padding: 3rem;
+  padding: 3.2rem;
 }
 
-.left-container {
+.left-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -84,11 +54,11 @@ a {
 }
 
 .logo {
-  margin-bottom: 3rem;
+  margin-bottom: 3.2rem;
 }
 
-.left-container li {
-  margin-bottom: 0.5rem;
+.left-wrapper li {
+  margin-bottom: 0.8rem;
 }
 
 a.link {
@@ -103,7 +73,7 @@ a.link::after {
   bottom: -3px;
   width: 100%;
   height: 1px;
-  background-color: #fff;
+  background-color: abstracts.$color-white;
   transform: scaleX(1);
   transform-origin: bottom right;
   transition: transform 0.3s ease-out;
@@ -129,7 +99,9 @@ a.link:hover::after {
 }
 
 .category-title {
-  font-family: founders-grotesk-light, sans-serif;
+  font-family: abstracts.$founders-grotesk, sans-serif;
+  font-weight: 100;
+  color: abstracts.$color-white;
   opacity: 50%;
   width: 100%;
   padding: 2rem;
@@ -144,12 +116,13 @@ a.project {
 }
 
 a.project:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: abstracts.$color-white;
+  color: abstracts.$color-black;
 }
 
 .project-title {
-  font-family: founders-grotesk-medium, sans-serif;
+  font-family: abstracts.$founders-grotesk sans-serif;
+  font-weight: 300;
 }
 
 .project-tools {
