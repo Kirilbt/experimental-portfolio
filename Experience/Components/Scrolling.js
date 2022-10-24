@@ -1,13 +1,22 @@
 import { clamp, lerp } from '../Utils/math.js'
 
 export default class Scrolling {
-  constructor({ element }) {
+  constructor({
+    blockers = ['menu--open'],
+    easing = 0.05,
+    element,
+    speed = 1,
+    trigger = window
+  }) {
+    this.blockers = blockers
     this.element = element
+    this.speed = speed
+    this.trigger = trigger
     this.wrapper = element.children[0]
 
     this.current = 0
     this.target = 0
-    this.easing = 0.05
+    this.easing = easing
     this.limit = 0
 
     this.addObserver()
@@ -15,10 +24,14 @@ export default class Scrolling {
   }
 
   onWheel ({ deltaY }) {
-    this.target += deltaY
+    if (this.blockers.some(className => document.documentElement.classList.contains(className))) return
+
+    this.target += deltaY * this.speed
   }
 
   onTouchStart (event) {
+    if (this.blockers.some(className => document.documentElement.classList.contains(className))) return
+
     this.isDown = true
 
     this.y = event.touches ? event.touches[0].clientY : event.clientY
@@ -49,15 +62,15 @@ export default class Scrolling {
   }
 
   addEventListeners () {
-    window.addEventListener('wheel', this.onWheel.bind(this))
+    this.trigger.addEventListener('wheel', this.onWheel.bind(this))
 
-    window.addEventListener('touchstart', this.onTouchStart.bind(this))
-    window.addEventListener('touchmove', this.onTouchMove.bind(this))
-    window.addEventListener('touchend', this.onTouchEnd.bind(this))
+    this.trigger.addEventListener('touchstart', this.onTouchStart.bind(this))
+    this.trigger.addEventListener('touchmove', this.onTouchMove.bind(this))
+    this.trigger.addEventListener('touchend', this.onTouchEnd.bind(this))
 
-    window.addEventListener('mousedown', this.onTouchStart.bind(this))
-    window.addEventListener('mousemove', this.onTouchMove.bind(this))
-    window.addEventListener('mouseup', this.onTouchEnd.bind(this))
+    this.trigger.addEventListener('mousedown', this.onTouchStart.bind(this))
+    this.trigger.addEventListener('mousemove', this.onTouchMove.bind(this))
+    this.trigger.addEventListener('mouseup', this.onTouchEnd.bind(this))
   }
 
   update () {
