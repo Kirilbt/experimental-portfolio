@@ -183,10 +183,14 @@ a.link:hover::after {
 /* Right */
 .right {
   flex-grow: 1;
-  border-left: 1px solid rgba(255, 255, 255, 0.3137254902);
-  max-height: 100%;
+  height: var(--100vh);
+}
+
+.right-wrapper {
   overflow-y: scroll;
+  border-left: 1px solid rgba(255, 255, 255, 0.3137254902);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .projects-list li:not(:last-child) {

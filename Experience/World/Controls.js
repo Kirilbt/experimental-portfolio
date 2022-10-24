@@ -7,9 +7,9 @@ export default class Controls {
     this.experience = new Experience()
     this.canvas = this.experience.canvas
     this.camera = this.experience.camera
+    this.scrolling = this.experience.scrolling
 
     this.setOrbitControls()
-    // this.onWheel()
   }
 
   setOrbitControls() {
@@ -17,15 +17,13 @@ export default class Controls {
     this.controls.enableDamping = true
   }
 
-  // onWheel() {
-  //   window.addEventListener('wheel', (e) => {
-  //     console.log(e);
-  //   })
-  // }
-
-  resize() {}
+  resize() {
+    document.documentElement.style.setProperty('--100vh', `${window.innerHeight}px`)
+    this.scrolling.resize()
+  }
 
   update() {
+    this.scrolling.update()
     this.controls.update()
   }
 }

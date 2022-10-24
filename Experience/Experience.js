@@ -5,6 +5,8 @@ import Time from './Utils/Time.js'
 import Resources from './Utils/Resources.js'
 import assets from './Utils/assets.js'
 
+import Scrolling from './Components/Scrolling.js'
+
 import Camera from './Camera.js'
 import Renderer from './Renderer.js'
 
@@ -27,6 +29,10 @@ export default class Experience {
     this.renderer = new Renderer()
     this.world = new World()
 
+    this.scrolling = new Scrolling({
+      element: document.querySelector('.right')
+    })
+
     this.sizes.on('resize', () => {
       this.resize()
     })
@@ -40,10 +46,12 @@ export default class Experience {
     this.camera.resize()
     this.world.resize()
     this.renderer.resize()
+    this.scrolling.resize()
   }
   update() {
     this.camera.update()
     this.world.update()
     this.renderer.update()
+    this.scrolling.update()
   }
 }
