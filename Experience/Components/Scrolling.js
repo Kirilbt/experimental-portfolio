@@ -12,7 +12,6 @@ export default class Scrolling {
 
     this.addObserver()
     this.addEventListeners()
-    this.update()
   }
 
   onWheel ({ deltaY }) {
@@ -20,26 +19,23 @@ export default class Scrolling {
   }
 
   onTouchStart (event) {
-    // console.log(event)
+    this.isDown = true
+
+    this.y = event.touches ? event.touches[0].clientY : event.clientY
+    this.position = this.current
   }
 
   onTouchMove (event) {
-    // console.log(event)
+    if (!this.isDown) return
+
+    const y = event.touches ? event.touches[0].clientY : event.clientY
+    const distance = this.y - y
+
+    this.target = this.position + (distance * 3)
   }
 
   onTouchEnd (event) {
-    // console.log(event)
-  }
-
-  update () {
-    this.target = clamp(this.target, 0, this.limit)
-    this.current = lerp(this.current, this.target, this.easing)
-
-    this.element.style.transform = `translate3d(0, -${this.current}px, 0)`
-  }
-
-  resize() {
-    this.limit = this.wrapper.clientHeight - this.element.clientHeight
+    this.isDown = false
   }
 
   addObserver() {
@@ -62,5 +58,16 @@ export default class Scrolling {
     window.addEventListener('mousedown', this.onTouchStart.bind(this))
     window.addEventListener('mousemove', this.onTouchMove.bind(this))
     window.addEventListener('mouseup', this.onTouchEnd.bind(this))
+  }
+
+  update () {
+    this.target = clamp(this.target, 0, this.limit)
+    this.current = lerp(this.current, this.target, this.easing)
+
+    this.element.style.transform = `translate3d(0, -${this.current}px, 0)`
+  }
+
+  resize() {
+    this.limit = this.wrapper.clientHeight - this.element.clientHeight
   }
 }
