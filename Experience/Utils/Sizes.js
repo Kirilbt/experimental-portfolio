@@ -14,7 +14,7 @@ export default class Sizes extends EventEmitter {
 
     window.addEventListener('resize', () => {
       this.container = document.querySelector('.left')
-    this.canvas = this.container.getBoundingClientRect()
+      this.canvas = this.container.getBoundingClientRect()
       this.width = this.canvas.width
       this.height = this.canvas.height
       // this.width = window.innerWidth

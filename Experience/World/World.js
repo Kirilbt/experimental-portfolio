@@ -15,18 +15,20 @@ export default class World {
     this.canvas = this.experience.canvas
     this.camera = this.experience.camera
     this.resources = this.experience.resources
-    this.randomInt = Math.floor(Math.random() * (4 - 1) + 1);
 
     this.resources.on('ready', () => {
       this.environment = new Environment()
       this.controls = new Controls()
 
-      if(this.randomInt === 1) {
-        this.face = new Face()
-      } else if (this.randomInt === 2) {
+      if(localStorage.shownResource === '1') {
         this.text = new Text()
-      } else {
+        localStorage.shownResource = Number(localStorage.shownResource)+1
+      } else if(localStorage.shownResource === '2') {
         this.cube = new Cube()
+        localStorage.clear()
+      } else {
+        this.face = new Face()
+        localStorage.shownResource = 1
       }
     })
   }
