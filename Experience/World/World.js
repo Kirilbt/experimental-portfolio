@@ -1,3 +1,4 @@
+import { EventEmitter } from 'events'
 import * as THREE from 'three'
 
 import Experience from '../Experience.js'
@@ -7,8 +8,9 @@ import Cube from './Cube.js'
 import Environment from './Environment.js'
 import Controls from './Controls.js'
 
-export default class World {
+export default class World extends EventEmitter {
   constructor() {
+    super()
     this.experience = new Experience()
     this.sizes = this.experience.sizes
     this.scene = this.experience.scene
@@ -30,6 +32,7 @@ export default class World {
         this.face = new Face()
         localStorage.shownResource = 1
       }
+      this.emit('worldready')
     })
   }
   resize() {
