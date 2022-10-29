@@ -73,6 +73,18 @@ export default class Scrolling {
     this.trigger.addEventListener('mouseup', this.onTouchEnd.bind(this))
   }
 
+  removeEventListeners () {
+    this.trigger.removeEventListener('wheel', this.onWheel.bind(this))
+
+    this.trigger.removeEventListener('touchstart', this.onTouchStart.bind(this))
+    this.trigger.removeEventListener('touchmove', this.onTouchMove.bind(this))
+    this.trigger.removeEventListener('touchend', this.onTouchEnd.bind(this))
+
+    this.trigger.removeEventListener('mousedown', this.onTouchStart.bind(this))
+    this.trigger.removeEventListener('mousemove', this.onTouchMove.bind(this))
+    this.trigger.removeEventListener('mouseup', this.onTouchEnd.bind(this))
+  }
+
   update () {
     this.target = clamp(this.target, 0, this.limit)
     this.current = lerp(this.current, this.target, this.easing)

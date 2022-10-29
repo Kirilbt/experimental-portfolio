@@ -14,5 +14,7 @@ export default class Preloader extends EventEmitter {
     })
   }
 
-  playIntro() {}
+  playIntro() {
+    this.emit('enableControls')
+  }
 }

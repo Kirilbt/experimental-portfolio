@@ -104,19 +104,21 @@ a.link:hover::after {
 }
 
 .category-title {
-  font-family: abstracts.$founders-grotesk, sans-serif;
-  font-weight: 100;
+  font-family: abstracts.$ibm-plex-mono, monospace;
+  font-weight: 400;
+  font-size: abstracts.$font-size-details;
+  text-transform: uppercase;
   color: abstracts.$color-white;
   opacity: 50%;
   width: 100%;
-  padding: 2rem;
+  padding: 2.6rem;
 }
 
 a.project {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 2rem;
+  padding: 2.6rem;
   transition: all .3s;
 }
 
@@ -131,5 +133,9 @@ a.project:hover {
 }
 
 .project-tools {
+  font-family: abstracts.$ibm-plex-mono, sans-serif;
+  font-weight: 400;
+  font-size: abstracts.$font-size-details;
+  text-transform: uppercase;
   opacity: 50%;
 }
