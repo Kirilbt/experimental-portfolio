@@ -20,7 +20,6 @@ export default class World extends EventEmitter {
 
     this.resources.on('ready', () => {
       this.environment = new Environment()
-      // this.controls = new Controls()
 
       if(localStorage.shownResource === '1') {
         this.text = new Text()
@@ -48,8 +47,5 @@ export default class World extends EventEmitter {
     if(this.cube) {
       this.cube.update()
     }
-    // if(this.controls) {
-    //   this.controls.update()
-    // }
   }
 }

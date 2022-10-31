@@ -11,7 +11,7 @@ import Camera from './Camera.js'
 import Renderer from './Renderer.js'
 
 import World from './World/World.js'
-// import Preloader from './Preloader.js'
+import Preloader from './Preloader.js'
 
 export default class Experience {
   static instance
@@ -29,10 +29,10 @@ export default class Experience {
     this.resources = new Resources(assets)
     this.renderer = new Renderer()
     this.world = new World()
-    // this.preloader = new Preloader()
+    this.preloader = new Preloader()
 
     // this.preloader.on('enableControls', () => {
-    //   // this.controls = new Controls()
+    //   this.controls = new Controls()
     // })
 
     this.scrolling = new Scrolling({
@@ -53,7 +53,7 @@ export default class Experience {
     this.world.resize()
     this.renderer.resize()
     this.scrolling.resize()
-    // document.documentElement.style.setProperty('--100vh', `${window.innerHeight}px`)
+    document.documentElement.style.setProperty('--100vh', `${window.innerHeight}px`)
   }
   update() {
     this.camera.update()

@@ -2,19 +2,22 @@
 @use '../base';
 
 .preloader {
-  background-color: abstracts.$color-black;
+  position: fixed;
   width: 100%;
   height: 100vh;
   z-index: 99999;
+  opacity: 1;
+  transition: all 1s;
+  pointer-events: none;
 }
 
 .preloader-wrapper {
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
+  background-color: abstracts.$color-black;
 }
 
 .loading {
@@ -53,7 +56,7 @@
   }
 
   50% {
-    transform: translateY(-1.6rem);
+    transform: translateY(-1.8rem);
   }
 
   100% {

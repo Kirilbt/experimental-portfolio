@@ -15,6 +15,7 @@ export default class Preloader extends EventEmitter {
   }
 
   playIntro() {
-    this.emit('enableControls')
+    document.querySelector('.preloader').style.opacity = 0
+    // this.emit('enableControls')
   }
 }
